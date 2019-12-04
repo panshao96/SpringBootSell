@@ -1,19 +1,17 @@
 package com.imooc.sell.service.impl;
 
-        import com.imooc.sell.dataobject.ProductInfo;
-        import com.imooc.sell.enums.InfoStatusEnum;
-        import org.junit.Assert;
-        import org.junit.Test;
-        import org.junit.runner.RunWith;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.boot.test.context.SpringBootTest;
-        import org.springframework.data.domain.PageRequest;
-        import org.springframework.data.domain.Pageable;
-        import org.springframework.test.context.junit4.SpringRunner;
-
-        import java.math.BigDecimal;
-        import java.util.List;
-
+import com.imooc.sell.dataobject.ProductInfo;
+import com.imooc.sell.enums.InfoStatusEnum;
+import org.junit.Assert;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.test.context.junit4.SpringRunner;
+import java.math.BigDecimal;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -25,7 +23,7 @@ public class InfoServiceImplTest {
     @Test
     public void findOne() throws Exception {
         ProductInfo info = infoService.findOne("123456");
-        Assert.assertEquals("123456", info.getProductId());
+        Assert.assertEquals("123456", info.getInfoId());
     }
 
     @Test
@@ -43,13 +41,13 @@ public class InfoServiceImplTest {
     @Test
     public void save() {
         ProductInfo productInfo = new ProductInfo();
-        productInfo.setProductId("1234565");
-        productInfo.setProductName("牛肉面");
-        productInfo.setProductPrice(new BigDecimal(10.3));
-        productInfo.setProductStock(200);
-        productInfo.setProductDescription("很好吃的虾");
-        productInfo.setProductIcon("http://xxxxx.jpg");
-        productInfo.setProductStatus(InfoStatusEnum.UP.getCode());
+        productInfo.setInfoId("1234565");
+        productInfo.setInfoName("牛肉面");
+        productInfo.setInfoPrice(new BigDecimal(10.3));
+        productInfo.setInfoStock(200);
+        productInfo.setInfoDescription("很好吃的虾");
+        productInfo.setInfoIcon("http://xxxxx.jpg");
+        productInfo.setInfoStatus(InfoStatusEnum.UP.getCode());
         productInfo.setCategoryType(3);
 
         ProductInfo result = infoService.save(productInfo);

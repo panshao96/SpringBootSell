@@ -21,13 +21,13 @@ public class InfoServiceImpl implements InfoService {
     ProductInfoRepository repository;
 
     @Override
-    public ProductInfo findOne(String productId) {
-        return repository.findById(productId).get();
+    public ProductInfo findOne(String infoId) {
+        return repository.findById(infoId).get();
     }
 
     @Override
     public List<ProductInfo> findUpAll() {
-        return repository.findByProductStatus(InfoStatusEnum.UP.getCode());
+        return repository.findByInfoStatus(InfoStatusEnum.UP.getCode());
     }
 
     @Override

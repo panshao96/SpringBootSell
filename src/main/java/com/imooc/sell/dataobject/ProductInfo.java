@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 
 /**
+ * 商品属性
  * @author panshao
  */
 @Data
@@ -15,22 +16,32 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class ProductInfo {
 
+    /** 商品id */
     @Id
-    private String productId;
+    private String infoId;
 
-    private String productName;
+    /** 商品名 */
+    private String infoName;
 
-    private BigDecimal productPrice;
+    /** 商品价格 */
+    private BigDecimal infoPrice;
 
-    private Integer productStock;
+    /** 商品库存 */
+    private Integer infoStock;
 
-    private String productDescription;
+    /** 商品描述 */
+    private String infoDescription;
 
-    private String productIcon;
+    /** 商品图 */
+    private String infoIcon;
 
-    private Integer productStatus = InfoStatusEnum.UP.getCode();
+    /** 商品状态（上架or下架） */
+    private Integer infoStatus = InfoStatusEnum.UP.getCode();
 
-
+    /**
+     * 类目编号
+     * 值唯一。对应热榜，男生最爱，女生最爱，优选等等
+     */
     private Integer categoryType;
 
 //    private Date createTime;

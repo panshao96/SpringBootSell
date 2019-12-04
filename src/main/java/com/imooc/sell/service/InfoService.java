@@ -13,10 +13,10 @@ public interface InfoService {
 
     /**
      * 通过id来查询某一条商品
-     * @param productId
+     * @param infoId
      * @return
      */
-    ProductInfo findOne(String productId);
+    ProductInfo findOne(String infoId);
 
     /**
      * 查询正上架的商品列表

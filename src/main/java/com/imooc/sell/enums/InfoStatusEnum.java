@@ -14,7 +14,6 @@ public enum InfoStatusEnum {
     DOWN(1, "下架"),
     ;
 
-
     private Integer code;
 
     private String msg;

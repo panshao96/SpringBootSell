@@ -12,7 +12,6 @@ import java.math.BigDecimal;
  */
 @Data
 @Entity
-@AllArgsConstructor
 public class OrderDetail {
 
     @Id

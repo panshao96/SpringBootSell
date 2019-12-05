@@ -4,19 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 订单状态
+ * 商品的状态
  * @author panshao
  */
-@Getter
 @AllArgsConstructor
-public enum OrderStatusEnum {
+@Getter
+public enum InfoStatusEnum {
 
     /** */
-    NEW(0, "新订单"),
-    FINISHED(1, "已完结"),
-    CANCEL(2, "已取消");
+    UP(0, "上架"),
+    DOWN(1, "下架");
 
     private Integer code;
 
     private String msg;
+
 }

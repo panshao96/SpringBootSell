@@ -4,25 +4,24 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * 商品的状态
+ * 支付状态
  * @author panshao
  */
-@AllArgsConstructor
 @Getter
-public enum InfoStatusEnum {
+@AllArgsConstructor
+public enum PayStatusEnum {
 
     /**
-     * 上架状态
+     * 订单正等待支付
      */
-    UP(0, "上架"),
+    WAIT(0, "等待支付"),
+
     /**
-     * 下架状态
+     * 订单已完成支付
      */
-    DOWN(1, "下架")
-    ;
+    SUCCESS(1, "完成支付");
 
     private Integer code;
 
     private String msg;
-
 }

@@ -58,7 +58,7 @@ public class OrderServiceImplTest {
 
     @Test
     public void findOne() throws Exception {
-        Assert.assertNotNull(orderService.findOne("1575647439915416398"));
+        Assert.assertNotNull(orderService.findOne("1577279459000389933"));
     }
 
     @Test
@@ -69,21 +69,21 @@ public class OrderServiceImplTest {
 
     @Test
     public void cancel() throws Exception {
-        OrderDTO orderDTO = orderService.findOne("1575647462452886377");
+        OrderDTO orderDTO = orderService.findOne("1577279852943288524");
         OrderDTO result = orderService.cancel(orderDTO);
         Assert.assertEquals(OrderStatusEnum.CANCEL.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void finish() throws Exception {
-        OrderDTO orderDTO = orderService.findOne("1575647474103967911");
+        OrderDTO orderDTO = orderService.findOne("1577279459000389933");
         OrderDTO result = orderService.finish(orderDTO);
         Assert.assertEquals(OrderStatusEnum.FINISHED.getCode(), result.getOrderStatus());
     }
 
     @Test
     public void paid() throws Exception {
-        OrderDTO orderDTO = orderService.findOne("1575647439915416398");
+        OrderDTO orderDTO = orderService.findOne("1577279862356151446");
         OrderDTO result = orderService.paid(orderDTO);
         Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(), result.getPayStatus());
     }

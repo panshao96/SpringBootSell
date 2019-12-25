@@ -3,7 +3,11 @@ package com.imooc.sell.dto;
 import com.imooc.sell.dataobject.OrderDetail;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -39,4 +43,12 @@ public class OrderDTO {
 
     /** 订单内全部商品详情 */
     private List<OrderDetail> orderDetailList;
+
+    /** 创建时间. */
+    @CreatedDate
+    private Date createTime;
+
+    /** 更新时间. */
+    @LastModifiedDate
+    private Date updateTime;
 }

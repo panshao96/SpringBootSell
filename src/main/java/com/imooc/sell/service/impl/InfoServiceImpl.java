@@ -53,7 +53,7 @@ public class InfoServiceImpl implements InfoService {
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
-            Integer result = productInfo.getInfoStock() - cartDTO.getProductQuantity();
+            Integer result = productInfo.getInfoStock() + cartDTO.getProductQuantity();
             productInfo.setInfoStock(result);
             repository.save(productInfo);
         }
@@ -67,7 +67,7 @@ public class InfoServiceImpl implements InfoService {
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
-            Integer result = productInfo.getInfoStock() + cartDTO.getProductQuantity();
+            Integer result = productInfo.getInfoStock() - cartDTO.getProductQuantity();
             productInfo.setInfoStock(result);
             repository.save(productInfo);
         }

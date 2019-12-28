@@ -91,6 +91,7 @@ public class OrderServiceImplTest {
     @Test
     public void testFindList() throws Exception {
         Pageable pageable = PageRequest.of(0, 2);
-        Assert.assertNotEquals(0, orderService.findList(pageable).getTotalElements());
+//        Assert.assertNotEquals(0, orderService.findList(pageable).getTotalElements());
+        Assert.assertTrue("查询所有订单列表", orderService.findList(pageable).getTotalElements() > 0);
     }
 }

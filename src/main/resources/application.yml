@@ -7,7 +7,10 @@ spring:
   jpa:
     show-sql: true
     open-in-view: true
-
+  jackson:
+    default-property-inclusion: non_null
+  freemarker:
+    suffix: .ftl
 server:
   servlet:
     context-path: /sell

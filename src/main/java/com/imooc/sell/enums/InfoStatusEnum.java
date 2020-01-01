@@ -9,7 +9,7 @@ import lombok.Getter;
  */
 @AllArgsConstructor
 @Getter
-public enum InfoStatusEnum {
+public enum InfoStatusEnum implements CodeEnum{
 
     /** */
     UP(0, "上架"),

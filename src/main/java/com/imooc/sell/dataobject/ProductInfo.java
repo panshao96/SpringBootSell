@@ -1,11 +1,20 @@
 package com.imooc.sell.dataobject;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.imooc.sell.Utils.EnumUtil;
 import com.imooc.sell.enums.InfoStatusEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.Id;
 import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  * 商品属性
@@ -13,7 +22,9 @@ import java.math.BigDecimal;
  */
 @Data
 @Entity
+@DynamicUpdate
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class ProductInfo {
 
     /** 商品id */
@@ -44,8 +55,15 @@ public class ProductInfo {
      */
     private Integer categoryType;
 
-//    private Date createTime;
+    @CreatedDate
+    private Date createTime;
 
-//    private Date updateTime;
+    @LastModifiedDate
+    private Date updateTime;
+
+    @JsonIgnore
+    public InfoStatusEnum getProductStatusEnum() {
+        return EnumUtil.getByCode(infoStatus, InfoStatusEnum.class);
+    }
 
 }

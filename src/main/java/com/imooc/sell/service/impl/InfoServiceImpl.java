@@ -49,7 +49,7 @@ public class InfoServiceImpl implements InfoService {
     @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
         for (CartDTO cartDTO : cartDTOList) {
-            ProductInfo productInfo = repository.getOne(cartDTO.getProductId());
+            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
@@ -63,7 +63,7 @@ public class InfoServiceImpl implements InfoService {
     @Transactional
     public void decreaseStock(List<CartDTO> cartDTOList) {
         for (CartDTO cartDTO : cartDTOList) {
-            ProductInfo productInfo = repository.getOne(cartDTO.getProductId());
+            ProductInfo productInfo = repository.findById(cartDTO.getProductId()).get();
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
@@ -75,11 +75,23 @@ public class InfoServiceImpl implements InfoService {
 
     @Override
     public ProductInfo onSale(String productId) {
-        return null;
+        ProductInfo productInfo = repository.findById(productId).get();
+        if (productInfo == null) {
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        productInfo.setInfoStatus(InfoStatusEnum.UP.getCode());
+
+        return repository.save(productInfo);
     }
 
     @Override
     public ProductInfo offSale(String productId) {
-        return null;
+        ProductInfo productInfo = repository.findById(productId).get();
+        if (productInfo == null) {
+            throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+        }
+        productInfo.setInfoStatus(InfoStatusEnum.DOWN.getCode());
+
+        return repository.save(productInfo);
     }
 }

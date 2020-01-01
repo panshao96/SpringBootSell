@@ -4,10 +4,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * 类目属性
@@ -18,6 +20,7 @@ import javax.persistence.Id;
 @ToString
 @DynamicUpdate
 @NoArgsConstructor
+@EntityListeners(AuditingEntityListener.class)
 public class ProductCategory {
 
     /** 类目id */
@@ -33,6 +36,13 @@ public class ProductCategory {
      * 值唯一，若数据库中存在。那么就会报错
      * */
     private Integer categoryType;
+
+    @CreatedDate
+    private Date createTime;
+
+    @LastModifiedDate
+    private Date updateTime;
+
 
     public ProductCategory(Integer categoryType, String categoryName) {
         this.categoryName = categoryName;

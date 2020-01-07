@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import sun.applet.resources.MsgAppletViewer;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 import java.util.UUID;
@@ -56,7 +57,21 @@ public class SellUserController {
     }
 
     @GetMapping("/logout")
-    public void logout() {
+    public ModelAndView logout(HttpServletRequest servletRequest,
+                       HttpServletResponse servletResponse,
+                       Map<String, Object> map) {
+        //1、从cookie查询
+        //2、清除redis
+        //3、清除cookie
 
+        Cookie cookie = CookieUtil.get(servletRequest, CookieConstant.TOKEN);
+        if (cookie != null) {
+            redisTemplate.opsForValue().getOperations().delete(String.format(RedisConstant.TOKEN_PREFIX, cookie.getValue()));
+            CookieUtil.set(servletResponse, CookieConstant.TOKEN, null, 0);
+        }
+
+        map.put("msg", ResultEnum.LOGOUT_SUCCESS.getMsg());
+        map.put("url", "/sell/seller/order/list");
+        return new ModelAndView("common/success", map);
     }
 }

@@ -1,5 +1,7 @@
 package com.imooc.sell.service.impl;
 
+import com.imooc.sell.dataobject.ProductCategory;
+import com.imooc.sell.service.WebSocket;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -9,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.util.Arrays;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class CategoryServiceImplTest {
 
     @Autowired
@@ -30,10 +32,10 @@ public class CategoryServiceImplTest {
         Assert.assertNotEquals(0, categoryService.findByCategoryTypeIn(Arrays.asList(9,10,11,12)).size());
     }
 
-//    @Test
-//    public void save() throws Exception {
-//        ProductCategory productCategory = new ProductCategory(10, "男生专享");
-//        Assert.assertSame(productCategory, categoryService.save(productCategory));
-//
-//    }
+    @Test
+    public void save() throws Exception {
+        ProductCategory productCategory = new ProductCategory(102, "男生专享");
+        Assert.assertSame(productCategory, categoryService.save(productCategory));
+
+    }
 }

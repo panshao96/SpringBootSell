@@ -1,6 +1,6 @@
-package com.imooc.sell.Concroller;
+package com.imooc.sell.controller;
 
-import com.imooc.sell.Utils.ResultVOUtil;
+import com.imooc.sell.utils.ResultVOUtil;
 import com.imooc.sell.VO.CategoryVO;
 import com.imooc.sell.VO.InfoVO;
 import com.imooc.sell.VO.ResultVO;

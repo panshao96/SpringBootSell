@@ -1,20 +1,18 @@
-package com.imooc.sell.Concroller;
+package com.imooc.sell.controller;
 
-import com.imooc.sell.Utils.CookieUtil;
+import com.imooc.sell.utils.CookieUtil;
 import com.imooc.sell.constant.CookieConstant;
 import com.imooc.sell.constant.RedisConstant;
 import com.imooc.sell.dataobject.SellerInfo;
 import com.imooc.sell.enums.ResultEnum;
 import com.imooc.sell.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.servlet.server.Session;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import sun.applet.resources.MsgAppletViewer;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

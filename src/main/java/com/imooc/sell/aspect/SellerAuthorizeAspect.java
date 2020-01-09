@@ -1,10 +1,9 @@
 package com.imooc.sell.aspect;
 
-import com.imooc.sell.Utils.CookieUtil;
+import com.imooc.sell.utils.CookieUtil;
 import com.imooc.sell.constant.CookieConstant;
 import com.imooc.sell.constant.RedisConstant;
 import com.imooc.sell.exception.SellerAuthorizeException;
-import io.netty.util.internal.StringUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -27,8 +26,8 @@ public class SellerAuthorizeAspect {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
-    @Pointcut("execution(public * com.imooc.sell.Concroller.Seller*.*(..))" +
-    "&& !execution(public * com.imooc.sell.Concroller.SellUserController.*(..))")
+    @Pointcut("execution(public * com.imooc.sell.controller.Seller*.*(..))" +
+    "&& !execution(public * com.imooc.sell.controller.SellUserController.*(..))")
     public void verify() {
 
     }

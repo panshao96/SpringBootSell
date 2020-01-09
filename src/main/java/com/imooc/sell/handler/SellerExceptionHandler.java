@@ -11,6 +11,6 @@ public class SellerExceptionHandler {
     //拦截登陆异常
     @org.springframework.web.bind.annotation.ExceptionHandler(value = SellerAuthorizeException.class)
     public ModelAndView handlerAuthorizeException() {
-        return new ModelAndView("redirect:".concat("/buyer/product/list"));
+        return new ModelAndView("redirect:/buyer/product/list");
     }
 }

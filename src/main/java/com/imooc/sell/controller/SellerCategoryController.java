@@ -1,4 +1,4 @@
-package com.imooc.sell.Concroller;
+package com.imooc.sell.controller;
 
 import com.imooc.sell.dataobject.ProductCategory;
 import com.imooc.sell.form.CategoryForm;

@@ -1,10 +1,9 @@
 package com.imooc.sell.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.imooc.sell.Utils.EnumUtil;
-import com.imooc.sell.Utils.serializer.DateToLongSerializer;
+import com.imooc.sell.utils.EnumUtil;
+import com.imooc.sell.utils.serializer.DateToLongSerializer;
 import com.imooc.sell.dataobject.OrderDetail;
 import com.imooc.sell.enums.OrderStatusEnum;
 import com.imooc.sell.enums.PayStatusEnum;
@@ -13,7 +12,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
-import java.beans.IntrospectionException;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;

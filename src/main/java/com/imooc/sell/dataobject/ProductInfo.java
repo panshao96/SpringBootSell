@@ -1,7 +1,7 @@
 package com.imooc.sell.dataobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.imooc.sell.Utils.EnumUtil;
+import com.imooc.sell.utils.EnumUtil;
 import com.imooc.sell.enums.InfoStatusEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;

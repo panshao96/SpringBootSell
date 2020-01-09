@@ -1,6 +1,4 @@
-package com.imooc.sell.Utils;
-
-import org.springframework.boot.web.servlet.server.Session;
+package com.imooc.sell.utils;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

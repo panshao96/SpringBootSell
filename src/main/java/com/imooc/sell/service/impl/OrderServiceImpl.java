@@ -1,6 +1,6 @@
 package com.imooc.sell.service.impl;
 
-import com.imooc.sell.Utils.KeyUtil;
+import com.imooc.sell.utils.KeyUtil;
 import com.imooc.sell.converter.OrderMasterToOrderDTOConverter;
 import com.imooc.sell.dataobject.OrderDetail;
 import com.imooc.sell.dataobject.OrderMaster;

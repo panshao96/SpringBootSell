@@ -1,10 +1,8 @@
-package com.imooc.sell.Concroller;
+package com.imooc.sell.controller;
 
-import com.imooc.sell.Utils.KeyUtil;
+import com.imooc.sell.utils.KeyUtil;
 import com.imooc.sell.dataobject.ProductCategory;
 import com.imooc.sell.dataobject.ProductInfo;
-import com.imooc.sell.dto.OrderDTO;
-import com.imooc.sell.exception.SellException;
 import com.imooc.sell.form.ProductForm;
 import com.imooc.sell.service.CategoryService;
 import com.imooc.sell.service.InfoService;

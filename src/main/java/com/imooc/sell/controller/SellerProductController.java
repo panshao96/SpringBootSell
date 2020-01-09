@@ -8,6 +8,8 @@ import com.imooc.sell.service.CategoryService;
 import com.imooc.sell.service.InfoService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -122,7 +124,18 @@ public class SellerProductController {
      * @param map
      * @return
      */
+
+    /**
+     * @CachePut(cacheNames = "#Name", key = "#Value, condition = "#sellerId.length() > 3"
+     * , unless = "#result.getCode() != 0 " ")
+     * name和key都可以动态变化
+     * condition可用于判断，若条件成立才会进行缓存
+     * unless可从返回的结果中获取数据并判断，不成立就缓存
+     */
+
     @PostMapping("/save")
+//    @CachePut(cacheNames = "product", key = "123")
+    @CacheEvict(cacheNames = "product", key = "123")
     public ModelAndView save(@Valid ProductForm form,
                              BindingResult bindingResult,
                              Map<String, Object> map) {

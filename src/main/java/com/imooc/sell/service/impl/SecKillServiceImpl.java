@@ -15,7 +15,7 @@ import java.util.Map;
 @Slf4j
 public class SecKillServiceImpl implements SecKillService {
 
-    private static final int TIMEOUT = 10 * 1000; //超时时间5s
+    private static final int TIMEOUT = 10 * 1000; //超时时间
 
     @Autowired
     private RedisLock redisLock;
@@ -58,7 +58,7 @@ public class SecKillServiceImpl implements SecKillService {
 
         //加锁
         long time = System.currentTimeMillis() + TIMEOUT;
-        if (redisLock.lock(productId, String.valueOf(time))) {
+        if (!redisLock.lock(productId, String.valueOf(time))) {
             throw new SellException(101, "排队失败，请重试！");
         }
 
@@ -77,9 +77,10 @@ public class SecKillServiceImpl implements SecKillService {
                 e.printStackTrace();
             }
             stock.put(productId, stockNum);
+            //解锁
+            redisLock.unlock(productId, String.valueOf(time));
         }
 
-        //解锁
-        redisLock.unlock(productId, String.valueOf(time));
+
     }
 }

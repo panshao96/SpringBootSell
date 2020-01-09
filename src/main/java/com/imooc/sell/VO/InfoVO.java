@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreType;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 /**
@@ -12,7 +13,9 @@ import java.math.BigDecimal;
  * @author panshao
  */
 @Data
-public class InfoVO {
+public class InfoVO implements Serializable {
+
+    private static final long serialVersionUID = 7238889848156881196L;
 
     @JsonProperty("id")
     private String infoId;

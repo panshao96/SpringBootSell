@@ -3,6 +3,7 @@ package com.imooc.sell.VO;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -10,7 +11,9 @@ import java.util.List;
  * @author panshao
  */
 @Data
-public class CategoryVO<T> {
+public class CategoryVO<T> implements Serializable {
+
+    private static final long serialVersionUID = -2234259945844788225L;
 
     @JsonProperty("name")
     private String categoryName;

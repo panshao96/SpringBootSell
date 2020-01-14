@@ -43,5 +43,5 @@ java -jar 'jar包的绝对路径'
 
 ### 试用链接
 ```
-
+http://121.43.120.166:8080/sell/seller/seller/login?openid=admin
 ```
